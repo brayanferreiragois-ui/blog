@@ -1,40 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        header{
-            backgroud-color: beige;
-            color: black;
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-            padding:16px;
-        }
-        main{
-            backgroud-color:aliceblue;
-            color:blue;
-            max-width:800px;
-            margin:auto;
-
-        }
-        img{
-            width:80px;
-            height:80px;
-        }
-    </style>
+    <title>Meu Blog - O Garoto do Jardim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
-        <h1>Titulo principal do blog</h1>
-        <p>Escrever brevemente o que tem no blog</p>
+        <h1>As Aventuras de Léo</h1>
+        <p>Um espaço para contar histórias e descobertas</p>
     </header>
-    <main>
-        <img src="Gemini_Generated_Image_42j9ba42j9ba42j9.png" alt="![Desenho em aquarela de um menino sorridente com cabelos cacheados castanhos e olhos claros, segurando um barquinho de brinquedo em um jardim florido](https://googleusercontent.com/image_generation_content/0)">
-        <h2>subtitulo</h2>
-        <p>escrevendo detalhamente sobre o conteudo principal do blog</p>
+
+    <main class="container">
+        <article class="post">
+            <img src="https://googleusercontent.com/image_generation_content/0" 
+                 alt="Desenho em aquarela de um menino sorridente com cabelos cacheados castanhos e olhos claros, segurando um barquinho de brinquedo em um jardim florido" 
+                 class="post-img">
+            
+            <div class="post-content">
+                <span class="category">Aventura</span>
+                <h2>O Pequeno Marinheiro do Jardim</h2>
+                <span class="date">Postado em: 8 de Julho de 2026</span>
+                
+                <p>
+                    Hoje o dia amanheceu perfeito para explorar! Com seu barquinho de madeira favorito em mãos e um sorriso contagiante, Léo decidiu que o jardim dos fundos seria o seu grande oceano. Entre as flores de lavanda e as margaridas, cada canto escondia um novo mistério a ser desvendado.
+                </p>
+                <p>
+                    Com seus olhos claros brilhando de curiosidade e seus cachos ao vento, ele provou que não é preciso ir muito longe para viver uma grande história. A imaginação de uma criança é o melhor mapa do tesouro que existe.
+                </p>
+                
+                <div class="post-actions">
+                    <button class="like-btn" onclick="toggleLike()">
+                        <i class="fa-regular fa-heart"></i> <span id="like-text">Curtir</span>
+                    </button>
+                </div>
+            </div>
+        </article>
     </main>
+
+    <footer>
+        <p>&copy; 2026 - Criado com carinho para o GitHub</p>
+    </footer>
+
+    <script>
+        function toggleLike() {
+            const btn = document.querySelector('.like-btn');
+            const icon = btn.querySelector('i');
+            const text = document.getElementById('like-text');
+            
+            btn.classList.toggle('liked');
+            
+            if (btn.classList.contains('liked')) {
+                icon.className = 'fa-solid fa-heart';
+                text.textContent = 'Curtido!';
+            } else {
+                icon.className = 'fa-regular fa-heart';
+                text.textContent = 'Curtir';
+            }
+        }
+    </script>
 </body>
 </html>

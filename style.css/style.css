@@ -1,0 +1,145 @@
+/* Configurações Gerais e Cores */
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #4a4a4a;
+    --title-color: #2c3e50;
+    --accent-color: #7ca5b8; /* Tom pastel combinando com a aquarela */
+    --like-color: #e74c3c;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(135deg, #a8c0c8 0%, #7ca5b8 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Conteúdo Principal */
+.container {
+    max-width: 800px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+}
+
+.post {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.post-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 2rem;
+}
+
+.category {
+    background-color: #eef5f7;
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.post-content h2 {
+    color: var(--title-color);
+    font-size: 1.8rem;
+    margin: 0.8rem 0 0.4rem 0;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: #999;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.post-content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* Botão de Curtida Lindo */
+.post-actions {
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.like-btn {
+    background-color: transparent;
+    border: 2px solid #ddd;
+    color: #666;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.like-btn:hover {
+    border-color: var(--like-color);
+    color: var(--like-color);
+    background-color: #fff5f5;
+    transform: translateY(-2px);
+}
+
+/* Estado de ativo/curtido */
+.like-btn.liked {
+    background-color: var(--like-color);
+    border-color: var(--like-color);
+    color: white;
+    animation: pulse 0.3s linear;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.15); }
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+    font-size: 0.9rem;
+}
