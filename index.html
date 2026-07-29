@@ -4,63 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Blog - O Garoto do Jardim</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
-    <header>
-        <h1>As Aventuras de Léo</h1>
-        <p>Um espaço para contar histórias e descobertas</p>
-    </header>
-
-    <main class="container">
-        <article class="post">
-            <img src="https://googleusercontent.com/image_generation_content/0" 
-                 alt="Desenho em aquarela de um menino sorridente com cabelos cacheados castanhos e olhos claros, segurando um barquinho de brinquedo em um jardim florido" 
-                 class="post-img">
-            
-            <div class="post-content">
-                <span class="category">Aventura</span>
-                <h2>O Pequeno Marinheiro do Jardim</h2>
-                <span class="date">Postado em: 8 de Julho de 2026</span>
-                
-                <p>
-                    Hoje o dia amanheceu perfeito para explorar! Com seu barquinho de madeira favorito em mãos e um sorriso contagiante, Léo decidiu que o jardim dos fundos seria o seu grande oceano. Entre as flores de lavanda e as margaridas, cada canto escondia um novo mistério a ser desvendado.
-                </p>
-                <p>
-                    Com seus olhos claros brilhando de curiosidade e seus cachos ao vento, ele provou que não é preciso ir muito longe para viver uma grande história. A imaginação de uma criança é o melhor mapa do tesouro que existe.
-                </p>
-                
-                <div class="post-actions">
-                    <button class="like-btn" onclick="toggleLike()">
-                        <i class="fa-regular fa-heart"></i> <span id="like-text">Curtir</span>
-                    </button>
-                </div>
-            </div>
-        </article>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Criado com carinho para o GitHub</p>
-    </footer>
-
-    <script>
-        function toggleLike() {
-            const btn = document.querySelector('.like-btn');
-            const icon = btn.querySelector('i');
-            const text = document.getElementById('like-text');
-            
-            btn.classList.toggle('liked');
-            
-            if (btn.classList.contains('liked')) {
-                icon.className = 'fa-solid fa-heart';
-                text.textContent = 'Curtido!';
-            } else {
-                icon.className = 'fa-regular fa-heart';
-                text.textContent = 'Curtir';
-            }
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-</body>
-</html>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Card do Post */
+        article {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .post-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post-content {
+            padding: 25px;
+        }
+
+        .category {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        article h2 {
+            color: #
