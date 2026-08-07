@@ -4,7 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Blog - O Garoto do Jardim</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .post-img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post-content {
+            padding: 25px;
+        }
+
+        .category {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .post-content h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-bottom: 15px;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+            color: #555555;
+            text-align: justify;
+        }
+
+        .like-btn {
+            background-color: #f8f9fa;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .like-btn:hover {
+            background-color: #ffebee;
+            transform: translateY(-2px);
+        }
+
+        .like-btn.liked {
+            background-color: #e74c3c;
+            color: #ffffff;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +137,7 @@
 
     <main class="container">
         <article class="post-card">
-            <img class="post-img" src="leo.png" alt="Desenho em aquarela de Léo com seu barquinho em um jardim florido">
+            <img class="post-img" src="leo.png" alt="Desenho em aquarela de Léo no jardim">
             
             <div class="post-content">
                 <span class="category">Aventura</span>
@@ -31,7 +153,7 @@
                 </p>
 
                 <button id="btn-curtir" class="like-btn">
-                    <span class="heart-icon">❤️</span> 
+                    <span>❤️</span> 
                     <span id="btn-text">Curtir</span> 
                     (<span id="like-count">0</span>)
                 </button>
@@ -43,6 +165,42 @@
         <p>© 2026 - Criado com carinho para o GitHub</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const likeBtn = document.getElementById('btn-curtir');
+            const likeCountSpan = document.getElementById('like-count');
+            const btnText = document.getElementById('btn-text');
+
+            const POST_KEY = 'post_leo_curtido';
+            let totalLikes = 12;
+
+            let usuarioJaCurtiu = localStorage.getItem(POST_KEY) === 'true';
+
+            if (usuarioJaCurtiu) {
+                totalLikes += 1;
+                likeBtn.classList.add('liked');
+                btnText.innerText = 'Curtido';
+            }
+
+            likeCountSpan.innerText = totalLikes;
+
+            likeBtn.addEventListener('click', () => {
+                if (!usuarioJaCurtiu) {
+                    totalLikes++;
+                    usuarioJaCurtiu = true;
+                    localStorage.setItem(POST_KEY, 'true');
+                    likeBtn.classList.add('liked');
+                    btnText.innerText = 'Curtido';
+                } else {
+                    totalLikes--;
+                    usuarioJaCurtiu = false;
+                    localStorage.setItem(POST_KEY, 'false');
+                    likeBtn.classList.remove('liked');
+                    btnText.innerText = 'Curtir';
+                }
+                likeCountSpan.innerText = totalLikes;
+            });
+        });
+    </script>
 </body>
 </html>
