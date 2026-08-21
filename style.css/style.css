@@ -1,132 +1,106 @@
-/* Reseta estilos básicos */
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    color: #333333;
+    font-family: 'Segoe UI', -apple-system, Roboto, sans-serif;
+    color: #1e293b;
     line-height: 1.6;
-    padding: 20px;
-}
-
-/* Cabeçalho */
-.header {
-    text-align: center;
-    background: #ffffff;
+    background-color: #f8fafc;
     padding: 40px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    max-width: 800px;
-    margin: 0 auto 30px;
 }
 
-.header h1 {
-    color: #2c3e50;
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-}
-
-.header p {
-    color: #7f8c8d;
-    font-size: 1.1rem;
-}
-
-/* Container do Post */
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 35px;
 }
 
-.post-card {
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+header {
+    text-align: center;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 20px;
     margin-bottom: 30px;
 }
 
-.post-img {
-    width: 100%;
-    max-height: 420px;
-    object-fit: cover;
-    display: block;
-}
-
-.post-content {
-    padding: 25px;
-}
-
-.category {
-    display: inline-block;
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.post-content h2 {
-    color: #2c3e50;
-    font-size: 1.8rem;
+header h1 {
+    font-size: 2rem;
+    color: #0f172a;
     margin-bottom: 6px;
 }
 
-.date {
-    font-size: 0.85rem;
-    color: #95a5a6;
-    margin-bottom: 15px;
+header .subtitle {
+    font-size: 1.1rem;
+    color: #3b82f6;
+    font-weight: 500;
 }
 
-.post-content p {
-    margin-bottom: 15px;
-    color: #555555;
+.story-section {
+    margin-bottom: 30px;
+}
+
+.story-section h2 {
+    font-size: 1.4rem;
+    color: #0f172a;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
+    margin-bottom: 14px;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 12px;
     text-align: justify;
+    color: #334155;
 }
 
-/* Botão de Curtir */
-.like-btn {
-    background-color: #f8f9fa;
-    color: #e74c3c;
-    border: 2px solid #e74c3c;
-    padding: 10px 22px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    outline: none;
-}
-
-.like-btn:hover {
-    background-color: #ffebee;
-    transform: translateY(-2px);
-}
-
-/* Estado quando o usuário JÁ curtiu */
-.like-btn.liked {
-    background-color: #e74c3c;
-    color: #ffffff;
-}
-
-.like-btn.liked:hover {
-    background-color: #c0392b;
-}
-
-/* Rodapé */
-.footer {
-    text-align: center;
+.sources-card {
+    background-color: #f1f5f9;
+    border-left: 4px solid #0d9488;
+    border-radius: 0 8px 8px 0;
     padding: 20px;
-    color: #7f8c8d;
+    margin-top: 25px;
+}
+
+.sources-card h3 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 18px;
+}
+
+li {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #334155;
+}
+
+li strong {
+    color: #0d9488;
+}
+
+code {
+    background-color: #e2e8f0;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 0.9rem;
-    margin-top: 40px;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
 }
