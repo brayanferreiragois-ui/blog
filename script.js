@@ -1,19 +1,33 @@
-const botao = document.getElementById('meuBotao');
-const titulo = document.getElementById('titulo');
-const mensagem = document.getElementById('mensagem');
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Alternador de Tema (Claro / Escuro) ---
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  
+  // Verifica se o usuário já salvou a preferência anteriormente
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggleBtn.textContent = "☀️ Modo Claro";
+  }
 
-// Lista de cores para alternar
-const cores = ['#f0f2f5', '#ffe6e6', '#e6f7ff', '#e6ffe6', '#fff0f5'];
-let indiceCor = 0;
+  themeToggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    
+    themeToggleBtn.textContent = isDark ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
 
-botao.addEventListener('click', () => {
-    // Avança para a próxima cor da lista
-    indiceCor = (indiceCor + 1) % cores.length;
-    
-    // Altera a cor de fundo do body
-    document.body.style.backgroundColor = cores[indiceCor];
-    
-    // Atualiza o texto na tela
-    titulo.innerText = "Interatividade Ativa!";
-    mensagem.innerText = `Cor de fundo alterada com sucesso.`;
+  // --- Sistema de Curtidas ---
+  const likeBtn = document.getElementById("like-btn");
+  const likeCountSpan = document.getElementById("like-count");
+
+  // Carrega o número de curtidas salvas (ou começa em 0)
+  let likes = parseInt(localStorage.getItem("leo_likes")) || 0;
+  likeCountSpan.textContent = likes;
+
+  likeBtn.addEventListener("click", () => {
+    likes++;
+    likeCountSpan.textContent = likes;
+    localStorage.setItem("leo_likes", likes);
+  });
 });

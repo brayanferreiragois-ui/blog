@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo Interativo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog do Léo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="card">
-        <h1 id="titulo">Bem-vindo ao Web Dev!</h1>
-        <p id="mensagem">Clique no botão abaixo para interagir.</p>
-        <button id="meuBotao">Mudar Cor</button>
-    </div>
+  <!-- Topo do Site -->
+  <header class="header">
+    <div class="logo">Blog do Léo</div>
+    <button id="theme-toggle" class="btn-theme" aria-label="Alternar Tema">
+      🌙 Modo Escuro
+    </button>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="container">
+    
+    <!-- Perfil do Léo -->
+    <section class="profile-card">
+      <div class="avatar-wrapper">
+        <!-- Substitua a URL da imagem pela foto real do Léo -->
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80" alt="Foto do Léo" class="avatar" id="profile-img">
+      </div>
+      <h1 class="name">Olá, eu sou o Léo! 👋</h1>
+      <p class="tagline">Entusiasta da tecnologia, leitor e criador de conteúdo.</p>
+      
+      <!-- Botão de Curtida -->
+      <div class="like-section">
+        <button id="like-btn" class="like-btn">
+          ❤️ Curtir
+        </button>
+        <span id="like-count">0</span> curtidas
+      </div>
+    </section>
+
+    <!-- Sobre / De onde venho -->
+    <section class="info-card">
+      <h2>📍 De onde venho?</h2>
+      <p>
+        Nascido e criado no interior, sempre fui movido pela curiosidade de entender como as coisas funcionam. 
+        Minha jornada na programação e criação de conteúdo começou na biblioteca da escola e em fóruns online de tecnologia.
+      </p>
+      <p>
+        Hoje uso este espaço para compartilhar aprendizados, projetos e ideias sobre desenvolvimento web e vida cotidiana.
+      </p>
+    </section>
+
+    <!-- Origem das Informações / Fontes -->
+    <section class="info-card">
+      <h2>📚 Origem das Informações</h2>
+      <p>As informações e publicações deste blog são baseadas em:</p>
+      <ul>
+        <li>Estudos diários de desenvolvimento web e tecnologia.</li>
+        <li>Experiências pessoais e projetos práticos.</li>
+        <li>Documentações oficiais (MDN Web Docs, W3C).</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Blog do Léo. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
