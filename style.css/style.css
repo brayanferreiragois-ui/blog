@@ -1,171 +1,177 @@
-/* Variveis CSS para modo claro e escuro */
+/* ==================================================
+   VARIÁVEIS DE CORES & MODO ESCURO/CLARO
+================================================== */
 :root {
-  --bg-color: #f4f6f8;
-  --card-bg: #ffffff;
-  --text-color: #2c3e50;
-  --text-secondary: #6c757d;
-  --primary-color: #3b82f6;
-  --primary-hover: #2563eb;
-  --like-color: #ef4444;
-  --border-color: #e5e7eb;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --bg-color: #f7f9fc;
+    --card-bg: #ffffff;
+    --text-color: #2b2d42;
+    --title-color: #1d3557;
+    --accent-color: #4a90e2;
+    --source-bg: #f8fafc;
+    --source-border: #e2e8f0;
+    --btn-like-bg: #e2e8f0;
+    --btn-like-text: #1d3557;
+    --btn-theme-bg: #1d3557;
+    --btn-theme-text: #ffffff;
 }
 
-/* Estilos do Modo Escuro */
 body.dark-mode {
-  --bg-color: #0f172a;
-  --card-bg: #1e293b;
-  --text-color: #f8fafc;
-  --text-secondary: #94a3b8;
-  --border-color: #334155;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #e2e8f0;
+    --title-color: #38bdf8;
+    --accent-color: #38bdf8;
+    --source-bg: #0f172a;
+    --source-border: #334155;
+    --btn-like-bg: #334155;
+    --btn-like-text: #f8fafc;
+    --btn-theme-bg: #38bdf8;
+    --btn-theme-text: #0f172a;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* RESET E LAYOUT */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-family: 'Georgia', serif;
+    color: var(--text-color);
+    line-height: 1.8;
+    background-color: var(--bg-color);
+    padding: 40px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  background-color: var(--card-bg);
-  border-bottom: 1px solid var(--border-color);
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary-color);
+header {
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    color: var(--title-color);
+    margin-bottom: 8px;
+}
+
+header .subtitle {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+/* BOTOES E CONTROLES */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn:active {
+    transform: scale(0.95);
 }
 
 .btn-theme {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
+    background-color: var(--btn-theme-bg);
+    color: var(--btn-theme-text);
 }
 
-.btn-theme:hover {
-  background-color: var(--border-color);
+.btn-like {
+    background-color: var(--btn-like-bg);
+    color: var(--btn-like-text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* Layout */
-.container {
-  max-width: 700px;
-  width: 100%;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  flex: 1;
+.btn-like.liked {
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
-/* Cards */
-.profile-card, .info-card {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border-color);
-  margin-bottom: 1.5rem;
+/* IMAGEM DO BLOG */
+.img-container {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.profile-card {
-  text-align: center;
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.avatar-wrapper {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid var(--primary-color);
+/* CONTEÚDO */
+.story-section p {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+    text-align: justify;
 }
 
-.avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.sources-card {
+    background-color: var(--source-bg);
+    border: 1px solid var(--source-border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 35px;
 }
 
-.name {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.sources-card h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: var(--title-color);
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--source-border);
+    padding-bottom: 8px;
 }
 
-.tagline {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+.sources-card ul {
+    padding-left: 20px;
 }
 
-/* Botao de Curtida */
-.like-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: 600;
+.sources-card li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
 }
 
-.like-btn {
-  background-color: var(--like-color);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.1s ease;
+.sources-card code {
+    background-color: var(--source-border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
 }
 
-.like-btn:active {
-  transform: scale(0.95);
-}
-
-/* Conteudo dos Cards */
-.info-card h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: var(--primary-color);
-}
-
-.info-card p {
-  margin-bottom: 0.8rem;
-}
-
-.info-card ul {
-  padding-left: 1.2rem;
-}
-
-.info-card li {
-  margin-bottom: 0.4rem;
-  color: var(--text-secondary);
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 1.5rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--border-color);
-  background-color: var(--card-bg);
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-family: 'Arial', sans-serif;
 }
