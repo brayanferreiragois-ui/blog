@@ -1,31 +1,53 @@
-// Lógica do Botão Curtir / Descurtir
-const likeBtn = document.getElementById('likeBtn');
-const likeText = document.getElementById('likeText');
-const likeCount = document.getElementById('likeCount');
-let isLiked = false;
-let count = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Modo Escuro (Dark Mode) ---
+    const themeToggleBtn = document.getElementById('themeToggle');
+    
+    // Verifica tema salvo previamente
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggleBtn.textContent = '☀️ Modo Claro';
+    }
 
-likeBtn.addEventListener('click', () => {
-    isLiked = !isLiked;
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        themeToggleBtn.textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // --- 2. Botão de Curtida (Like) ---
+    const likeBtn = document.getElementById('likeBtn');
+    const likeCountSpan = document.getElementById('likeCount');
+    const likeTextSpan = document.getElementById('likeText');
+    
+    let likes = parseInt(localStorage.getItem('blogLikes')) || 0;
+    let isLiked = localStorage.getItem('userLiked') === 'true';
+
+    likeCountSpan.textContent = likes;
     if (isLiked) {
-        count++;
-        likeText.textContent = 'Curtido';
         likeBtn.classList.add('liked');
-    } else {
-        count--;
-        likeText.textContent = 'Curtir';
-        likeBtn.classList.remove('liked');
+        likeTextSpan.textContent = 'Curtido';
     }
-    likeCount.textContent = count;
-});
 
-// Lógica do Modo Escuro / Modo Claro
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    if (document.body.classList.contains('dark-mode')) {
-        themeToggle.textContent = '☀️ Modo Claro';
-    } else {
-        themeToggle.textContent = '🌙 Modo Escuro';
-    }
-});
+    likeBtn.addEventListener('click', () => {
+        if (!isLiked) {
+            likes++;
+            isLiked = true;
+            likeBtn.classList.add('liked');
+            likeTextSpan.textContent = 'Curtido';
+        } else {
+            likes--;
+            isLiked = false;
+            likeBtn.classList.remove('liked');
+            likeTextSpan.textContent = 'Curtir';
+        }
+
+        likeCountSpan.textContent = likes;
+        localStorage.setItem('blogLikes', likes);
+        localStorage.setItem('userLiked', isLiked);
+    });
+
+    // --- 3. Sistema de Comentários Funcional ---
+    const commentForm =
